@@ -1,201 +1,188 @@
-
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="DogeWallet user guide : ">
-
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
     <title>DogeWallet user guide</title>
   </head>
-
   <body>
-
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
-        <header class="inner">
-
-          <h1 id="project_title">DogeWallet user guide</h1>
-          <h2 id="project_tagline"></h2>
-
-        </header>
+      <header class="inner">
+        <h1 id="project_title">Wallet user guide</h1>
+        <h2 id="project_tagline"></h2>
+      </header>
     </div>
-
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
         <h1>
-<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting started</h1>
-
-<p>To get started with DogeWallet you need to ensure that you have registered and identified with NickServ on Freenode. You can register using the following command:</p>
-
-<pre><code>/msg NickServ REGISTER &lt;password&gt; &lt;email-address&gt; 
+          <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Getting started</h1>
+        <p>To get started with DogeWallet you need to ensure that you have
+          registered and identified with NickServ on Freenode. You can register
+          using the following command:</p>
+        <pre><code>/msg NickServ REGISTER &lt;password&gt; &lt;email-address&gt; 
 </code></pre>
-
-<p>Once registered and identified with NickServ you are ready to go, there's no need to create an account with DogeWallet. You can increase your account balance in two ways; receiving coins through tips, soaks and rain or through depositing directly from a wallet. </p>
-
-<h2>
-<a id="idle-time-bonus-time" class="anchor" href="#idle-time-bonus-time" aria-hidden="true"><span class="octicon octicon-link"></span></a>Idle time (bonus time)</h2>
-
-<p>DogeWallet uses the concept of idle time which allows a user to still be included in soaks for up to 24 hours without needing to talk in the channel every 10 minutes to remain active. Whilst a user will still remain active for 10 minutes after talking it is possible to earn much greater amounts of idle time by soaking and raining. Idle time also allows you to remain active even if you are offline, meaning that you will still be included in soaks even if you disconnect from IRC completely. This significantly cuts down on the amount of spam generated in the channel whilst also rewards those who give back to the channel by soaking and raining. </p>
-
-<h2>
-<a id="deposit" class="anchor" href="#deposit" aria-hidden="true"><span class="octicon octicon-link"></span></a>Deposit</h2>
-
-<p>To deposit into your account use the following command to receive your deposit address:</p>
-
-<pre><code>/msg DogeWallet deposit 
+        <p>Once registered and identified with NickServ you are ready to go,
+          there's no need to create an account with DogeWallet. You can increase
+          your account balance in two ways; receiving coins through tips, soaks
+          and rain or through depositing directly from a wallet. </p>
+        <h2>
+          <a id="idle-time-bonus-time" class="anchor" href="#idle-time-bonus-time"
+            aria-hidden="true"><span class="octicon octicon-link"></span></a>Idle
+          time (bonus time)</h2>
+        <p>DogeWallet uses the concept of idle time which allows a user to still
+          be included in soaks for up to 24 hours without needing to talk in the
+          channel every 10 minutes to remain active. Whilst a user will still
+          remain active for 10 minutes after talking it is possible to earn much
+          greater amounts of idle time by soaking and raining. Idle time also
+          allows you to remain active even if you are offline, meaning that you
+          will still be included in soaks even if you disconnect from IRC
+          completely. This significantly cuts down on the amount of spam
+          generated in the channel whilst also rewards those who give back to
+          the channel by soaking and raining. </p>
+        <h2>
+          <a id="deposit" class="anchor" href="#deposit" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Deposit</h2>
+        <p>To deposit into your account use the following command to receive
+          your deposit address:</p>
+        <pre><code>/msg DogeWallet deposit 
 </code></pre>
-
-<h2>
-<a id="withdraw" class="anchor" href="#withdraw" aria-hidden="true"><span class="octicon octicon-link"></span></a>Withdraw</h2>
-
-<p>To withdraw coins from your account use the following command:</p>
-
-<pre><code>/msg DogeWallet withdraw &lt;wallet address&gt; &lt;amount&gt;
+        <h2>
+          <a id="withdraw" class="anchor" href="#withdraw" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Withdraw</h2>
+        <p>To withdraw coins from your account use the following command:</p>
+        <pre><code>/msg DogeWallet withdraw &lt;wallet address&gt; &lt;amount&gt;
 </code></pre>
-
-<h2>
-<a id="balance" class="anchor" href="#balance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Balance</h2>
-
-<p>To see how many coins are in your account use the following command:</p>
-
-<pre><code>/msg DogeWallet balance
+        <h2>
+          <a id="balance" class="anchor" href="#balance" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Balance</h2>
+        <p>To see how many coins are in your account use the following command:</p>
+        <pre><code>/msg DogeWallet balance
 </code></pre>
-
-<h2>
-<a id="soak" class="anchor" href="#soak" aria-hidden="true"><span class="octicon octicon-link"></span></a>Soak</h2>
-
-<p>A soak allows a user to choose a specific amount of coins to be distributed evenly among the active users within a channel. Soaks can either be public where the channel can see who soaked the coins or ninja where the soaker is not announced to the channel.</p>
-
-<p>Example: When there are 10 active users in a channel and a user decides to soak 1000 coins each active user will receive 100 coins each. </p>
-
-<p>To public soak use the command:</p>
-
-<pre><code>.soak &lt;amount&gt;
+        <h2>
+          <a id="soak" class="anchor" href="#soak" aria-hidden="true"><span class="octicon octicon-link"></span></a>Soak</h2>
+        <p>A soak allows a user to choose a specific amount of coins to be
+          distributed evenly among the active users within a channel. Soaks can
+          either be public where the channel can see who soaked the coins or
+          ninja where the soaker is not announced to the channel.</p>
+        <p>Example: When there are 10 active users in a channel and a user
+          decides to soak 1000 coins each active user will receive 100 coins
+          each. </p>
+        <p>To public soak use the command:</p>
+        <pre><code>.soak &lt;amount&gt;
 </code></pre>
-
-<p>To ninja soak use the following command to send a message directly to the bot:</p>
-
-<pre><code>/msg DogeWallet soak &lt;amount&gt;
+        <p>To ninja soak use the following command to send a message directly to
+          the bot:</p>
+        <pre><code>/msg DogeWallet soak &lt;amount&gt;
 </code></pre>
-
-<h2>
-<a id="soak-walkthrough" class="anchor" href="#soak-walkthrough" aria-hidden="true"><span class="octicon octicon-link"></span></a>Soak walkthrough</h2>
-
-<p>This walkthrough will show and explain what happens when a soak occurs in the channel. Often times new users are confused about what the response from DogeWallet means after a soak so this walkthrough aims to breakdown the response and explain each part thoroughly. </p>
-
-<p>A user soaks 500 coins in the channel as so.</p>
-
-<pre><code>.soak 500
+        <h2>
+          <a id="soak-walkthrough" class="anchor" href="#soak-walkthrough" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Soak walkthrough</h2>
+        <p>This walkthrough will show and explain what happens when a soak
+          occurs in the channel. Often times new users are confused about what
+          the response from DogeWallet means after a soak so this walkthrough
+          aims to breakdown the response and explain each part thoroughly. </p>
+        <p>A user soaks 500 coins in the channel as so.</p>
+        <pre><code>.soak 500
 </code></pre>
-
-<p>DogeWallet then outputs something that looks like the following:</p>
-
-<pre><code>&lt;+DogeWallet&gt; user1 in #channel soaked 12 with 41 each + 8.0 Scraps = 500.0 
+        <p>DogeWallet then outputs something that looks like the following:</p>
+        <pre><code>&lt;+DogeWallet&gt; user1 in #channel soaked 12 with 41 each + 8.0 Scraps = 500.0 
 - Idle bonus: 63x = 525.0 -&gt; 625 min  Chan Soaks: 28472.0 user2 user3 user4
 user5 user6 user7 user8 user9 user10 user11 user12 user13
 </code></pre>
-
-<h3>
-<a id="breakdown-of-the-response" class="anchor" href="#breakdown-of-the-response" aria-hidden="true"><span class="octicon octicon-link"></span></a>Breakdown of the response</h3>
-
-<p>DogeWallet will first split the soak evenly between all active users, 12 in this case so each user will receive 41 coins each. </p>
-
-<pre><code>user1 in #channel soaked 12 with 41 each
+        <h3>
+          <a id="breakdown-of-the-response" class="anchor" href="#breakdown-of-the-response"
+            aria-hidden="true"><span class="octicon octicon-link"></span></a>Breakdown
+          of the response</h3>
+        <p>DogeWallet will first split the soak evenly between all active users,
+          12 in this case so each user will receive 41 coins each. </p>
+        <pre><code>user1 in #channel soaked 12 with 41 each
 </code></pre>
-
-<p><strong>Scraps</strong></p>
-
-<p>Any left over coins that cannot be divided as whole coins will go to the bot as scraps, 8 coins in this case. Scraps go to the DogeWallet channel balance and are used to fund bonus soaks whilst also helping to pay for server costs which keep the bot running. </p>
-
-<pre><code>user1 in #channel soaked 12 with 41 each + 8.0 Scraps = 500.0 
+        <p><strong>Scraps</strong></p>
+        <p>Any left over coins that cannot be divided as whole coins will go to
+          the bot as scraps, 8 coins in this case. Scraps go to the DogeWallet
+          channel balance and are used to fund bonus soaks whilst also helping
+          to pay for server costs which keep the bot running. </p>
+        <pre><code>user1 in #channel soaked 12 with 41 each + 8.0 Scraps = 500.0 
 </code></pre>
-
-<p><strong>Idle bonus</strong></p>
-
-<p>The idle bonus is a randomly multiplier that assigns you an amount of idle time that roughly correlates to the amount of coins that you soaked, depending on luck you may receive more or less than what you soaked. In this case the user received 525 minutes of idle time for their soak which when added onto their already banked time brought them up to 625 minutes total.</p>
-
-<pre><code>- Idle bonus: 63x = 525.0 -&gt; 625 min  
+        <p><strong>Idle bonus</strong></p>
+        <p>The idle bonus is a randomly multiplier that assigns you an amount of
+          idle time that roughly correlates to the amount of coins that you
+          soaked, depending on luck you may receive more or less than what you
+          soaked. In this case the user received 525 minutes of idle time for
+          their soak which when added onto their already banked time brought
+          them up to 625 minutes total.</p>
+        <pre><code>- Idle bonus: 63x = 525.0 -&gt; 625 min  
 </code></pre>
-
-<p><strong>Chan soaks</strong></p>
-
-<p>Chan soaks is the amount of coins that the channel as a whole have soaked since the last bonus soak was triggered, the greater this value is the more likely another soak will trigger a bonus soak. In this example the total channel soaks was  28472 coins.</p>
-
-<pre><code>Chan Soaks: 28472.0
+        <p><strong>Chan soaks</strong></p>
+        <p>Chan soaks is the amount of coins that the channel as a whole have
+          soaked since the last bonus soak was triggered, the greater this value
+          is the more likely another soak will trigger a bonus soak. In this
+          example the total channel soaks was 28472 coins.</p>
+        <pre><code>Chan Soaks: 28472.0
 </code></pre>
-
-<p><strong>Soaked users</strong></p>
-
-<p>The last part of the syntax is the users who are included in the soak, these are users who are active in the channel either by talking within the last 10 minutes or by having idle time. This allows users to be notified when they are included in soaks.</p>
-
-<pre><code>user2 user3 user4 user5 user6 user7 user8 user9 user10 user11 user12 user13
+        <p><strong>Soaked users</strong></p>
+        <p>The last part of the syntax is the users who are included in the
+          soak, these are users who are active in the channel either by talking
+          within the last 10 minutes or by having idle time. This allows users
+          to be notified when they are included in soaks.</p>
+        <pre><code>user2 user3 user4 user5 user6 user7 user8 user9 user10 user11 user12 user13
 </code></pre>
-
-<h2>
-<a id="bonus-soaks" class="anchor" href="#bonus-soaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Bonus soaks</h2>
-
-<p>A bonus soak is a soak that is triggered randomly after a soak has just occurred in the channel. It is funded by the accumulation of scraps from previous soaks and is more likely to trigger as the 'chan soaks' (total number of coins soaked since last bonus soak) increases.</p>
-
-<pre><code>&lt;+DogeWallet&gt; *** BONUS TRIGGERED by user1!!! DogeWallet in #channel is soaking 
+        <h2>
+          <a id="bonus-soaks" class="anchor" href="#bonus-soaks" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Bonus soaks</h2>
+        <p>A bonus soak is a soak that is triggered randomly after a soak has
+          just occurred in the channel. It is funded by the accumulation of
+          scraps from previous soaks and is more likely to trigger as the 'chan
+          soaks' (total number of coins soaked since last bonus soak) increases.</p>
+        <pre><code>&lt;+DogeWallet&gt; *** BONUS TRIGGERED by user1!!! DogeWallet in #channel is soaking 
 44 shibes with 83 each. Total: 3652 of 3653 possible.
 </code></pre>
-
-<h2>
-<a id="rain" class="anchor" href="#rain" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rain</h2>
-
-<p>Rain allows a user to give each active member in the channel a specific amount of coins. Rain can either be public where the channel can see who rained the coins or ninja where the user raining is not announced to the channel.</p>
-
-<p>Example: When there are 10 active users in a channel and a user decides to rain 10 coins each active user will receive 10 coins each.</p>
-
-<p>To public rain use the command:</p>
-
-<pre><code>.rain &lt;amount&gt;
+        <h2>
+          <a id="rain" class="anchor" href="#rain" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rain</h2>
+        <p>Rain allows a user to give each active member in the channel a
+          specific amount of coins. Rain can either be public where the channel
+          can see who rained the coins or ninja where the user raining is not
+          announced to the channel.</p>
+        <p>Example: When there are 10 active users in a channel and a user
+          decides to rain 10 coins each active user will receive 10 coins each.</p>
+        <p>To public rain use the command:</p>
+        <pre><code>.rain &lt;amount&gt;
 </code></pre>
-
-<p>To ninja rain use the following command to send a message directly to the bot:</p>
-
-<pre><code>/msg DogeWallet rain &lt;amount&gt;
+        <p>To ninja rain use the following command to send a message directly to
+          the bot:</p>
+        <pre><code>/msg DogeWallet rain &lt;amount&gt;
 </code></pre>
-
-<h2>
-<a id="tip" class="anchor" href="#tip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tip</h2>
-
-<p>You can send another user a tip using the following command:</p>
-
-<pre><code>.tip &lt;user&gt;  &lt;amount&gt;
+        <h2>
+          <a id="tip" class="anchor" href="#tip" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tip</h2>
+        <p>You can send another user a tip using the following command:</p>
+        <pre><code>.tip &lt;user&gt;  &lt;amount&gt;
 </code></pre>
-
-<h2>
-<a id="jackpot" class="anchor" href="#jackpot" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jackpot</h2>
-
-<p>The jackpot command allows users a chance of triggering one of the following actions:</p>
-
-<ul>
-<li>The jackpot balance is tipped back to the user contributing to the jackpot.</li>
-<li>The jackpot balance is tipped to a different user in the channel.</li>
-<li>The jackpot balance is soaked to the entire channel.</li>
-</ul>
-
-<p>To contribute to the jackpot and be in with a chance of triggering the jackpot use the following command:</p>
-
-<pre><code>.jackpot &lt;amount&gt;
-</code></pre>
-      </section>
+        <h2>
+          <a id="jackpot" class="anchor" href="#jackpot" aria-hidden="true"><span
+              class="octicon octicon-link"></span></a>Jackpot</h2>
+        <p>The jackpot command allows users a chance of triggering one of the
+          following actions:</p>
+        <ul>
+          <li>The jackpot balance is tipped back to the user contributing to the
+            jackpot.</li>
+          <li>The jackpot balance is tipped to a different user in the channel.</li>
+          <li>The jackpot balance is soaked to the entire channel.</li>
+        </ul>
+        <p>To contribute to the jackpot and be in with a chance of triggering
+          the jackpot use the following command:</p>
+        <pre><code>.jackpot &lt;amount&gt;
+</code></pre> </section>
     </div>
-
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-      <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-
-    
-
   </body>
 </html>
