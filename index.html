@@ -43,7 +43,7 @@
           of DOGE and each channel has ability to set their own default coin as
           well.&nbsp; But you can always choose an available coin when issuing
           commands:</p>
-        <pre><code>.btc balance<br>&lt;Wallet&gt; Bill48105: • Your balance is: 0.0000006 BTC (≈0.03 USD)<br><br>.tip Bill48105 0.1 XMR<br>&lt;Wallet&gt; Bill48105 tipped 0.1 XMR (≈$27.87) to Bill48105 [abcdef]<br></code><code>.info $btc<br>&lt;Wallet&gt; Bill48105: Bitcoin (BTC) • Ver: 160000 • Proto: 70015 • Blocks: 671364 • Diff: 21724.13B • Conn: 8 • Last: ≈31.04 min • Avg: ≈6.79 min • Confirm: ≈1 hr 34 min<br><br>reddit:<br>/u/walletbot balance $ltc<br><br>NOTE: You can select the coin in any 1 of the 3 ways shown on most platforms.<br>Commands and coins are NOT case sensitive.<br></code></pre>
+        <pre><code>.btc balance<br>&lt;Wallet&gt; Bill48105: • Your balance is: 0.0000006 BTC (≈0.03 USD)<br><br>.tip Bill48105 0.1 XMR<br>&lt;Wallet&gt; Bill48105 tipped 0.1 XMR (≈$27.87) to Bill48105 [abcdef]</code><code>.info $btc<br>&lt;Wallet&gt; Bill48105: Bitcoin (BTC) • Ver: 160000 • Proto: 70015 • Blocks: 671364 • Diff: 21724.13B • Conn: 8 • Last: ≈31.04 min • Avg: ≈6.79 min • Confirm: ≈1 hr 34 min<br><br>reddit:<br>/u/walletbot balance $ltc<br><br>NOTE: You can select the coin in any 1 of the 3 ways shown on most platforms.<br>Commands and coins are NOT case sensitive.</code></pre>
         <!-- END COINS -->
         <!-- START BONUSTIME -->
         <h2>Help</h2>
@@ -73,27 +73,18 @@
         <!-- START BALANCES -->
         <h2>Balances</h2>
         <p>To see how many coins are in your account use the following commands:</p>
-        <pre><code>.balances<br>.roger balance<br>.bal</code></pre>
+        <pre><code>.balances<br>.roger balance<br>.bal $ROGER</code></pre>
         <!-- END BALANCES -->
         <!-- START SOAK -->
         <h2>Soak</h2>
         <p>A soak allows a user to choose a specific amount of coins to be
-          distributed evenly among the active users within a channel. Soaks can
-          either be public where the channel can see who soaked the coins or
-          ninja where the soaker is not announced to the channel. Soaking will
-          soak active and bonustime users.</p>
+          distributed evenly among the recently active users within a channel. </p>
         <p>Example: When there are 10 active users in a channel and a user
-          decides to soak 1000 coins each active user will receive 100 coins
-          each. </p>
-        <p>To public soak use the command: (&lt;minutes&gt; is optional)</p>
-        <pre><code>.soak &lt;amount&gt; &lt;minutes&gt;<br>.soak ltc &lt;amount&gt; &lt;minutes&gt;<br>.soak xzc &lt;amount&gt; &lt;minutes&gt;</code></pre>
-        <p>To ninja soak use the following command to send a message directly to
-          the bot:</p>
-        <pre><code>/msg Wallet soak &lt;amount&gt; &lt;minutes&gt;<br>/msg Wallet soak ltc &lt;amount&gt; &lt;minutes&gt;<br>/msg Wallet soak xzc &lt;amount&gt; &lt;minutes&gt;</code></pre>
-        <p>To soaknow use the following commands: (soaknow does NOT include
-          BonusTime users)</p>
-        <p> </p>
-        <pre><code>.soaknow &lt;amount&gt;</code></pre>
+          decides to soak 100 coins each active user will receive 10 coins each.
+        </p>
+        <p>To soak use the command: (&lt;minutes&gt; is optional - Default is
+          try to get last 10 users)</p>
+        <pre><code>.soak &lt;amount&gt; &lt;minutes&gt;<br>.ltc soak $0.10 (Soaks 10 cents worth of ltc)<br>.soak 100 $ROGER 1440 (Soaks 100 ROGER to all people active in last 24 hours)</code></pre>
         <!-- END SOAK -->
         <!-- START WALKTHROUGH -->
         <h2>Soak walkthrough</h2>
@@ -101,65 +92,77 @@
           occurs in the channel. Often times new users are confused about what
           the response from Wallet means after a soak so this walkthrough aims
           to breakdown the response and explain each part thoroughly. </p>
-        <p>A user soaks 10 DOGE in the channel as so.</p>
-        <pre><code>.soak 10</code></pre>
+        <p>A user soaks 10 DOGE (default coin) in the channel as so.</p>
+        <pre><code>.soak 5</code></pre>
         <p>Wallet then outputs something that looks like the following:</p>
-        <pre><code>&lt;+Wallet&gt; user1 soaked 0.2 DOGE each: 50 users (See prev list or whogot) |<br>.whogot &lt;alphanumeric&gt; | Idle: 6 -&gt; 15 min | @BonusPot + 0 = 456.56837088</code></pre>
+        <pre><code>&lt;Wallet&gt; user1 soaked 0.5 DOGE each: 10 users [abcdef]</code></pre>
         <!-- START BREAKDOWN -->
         <h3>Breakdown of the response</h3>
         <p>Wallet will first split the soak evenly between all active users, 50
           in this case so each user will receive 0.2 coins each. </p>
-        <pre><code>&lt;+Wallet&gt; user1 in #channel soaked 50 with 0.2 DOGE each</code></pre>
-        <p><strong>Scraps &amp; BonusPot</strong></p>
+        <pre><code>&lt;Wallet&gt; user1 soaked 50 with 0.2 DOGE each</code></pre>
+        <p><strong>Scraps &amp; Community funded @bonuspot<br>
+          </strong></p>
         <p>Any left over coins that cannot be divided as whole coins will go to
-          the bot as scraps, 0 coins in this case. Scraps go to the Wallet
-          channel balance and are used to fund bonus soaks whilst also helping
-          to pay for server costs which keep the bot running. </p>
-        <pre><code>@BonusPot + 0 = 456.56837088</code></pre>
-        <p><strong>Idle bonus</strong></p>
-        <p>The idle bonus is a random multiplier that assigns you an amount of
-          idle time that roughly correlates to the amount of coins that you
-          soaked, depending on luck you may receive more or less than what you
-          soaked. In this case the user received 9 minutes of idle time for
-          their soak which when added onto their already banked time brought
-          them up to 15 minutes total.</p>
-        <pre><code>Idle: 6 -&gt; 15 min</code></pre>
+          the community @bonuspot as scraps, 0 coins in this case. Scraps go to
+          @bonuspot balance and are used to fund community features such as
+          faucet, confetti ducks, games, etc. </p>
         <p><strong>Soaked users</strong></p>
         <p>The last part of the syntax is the users who are included in the
           soak, these are users who are active in the channel either by talking
-          within the last 10 minutes or by having idle time. This allows users
-          to be notified when they are included in soaks.</p>
-        <pre><code>user2 user3 user4 user5 user6 user7 user8 user9 user10 user11 user12 user13</code></pre>
-        <p>If the list is to large the bot will give a whogot code
-          &lt;alphanumeric&gt; to display the users. </p>
-        <pre><code>.whogot &lt;alphanumeric&gt;</code></pre>
+          within the last X minutes. This allows users to be notified when they
+          are included in soaks.</p>
+        <pre><code>user2 user2 user3 user4 user5</code></pre>
+        <p>If the list is to large the bot will only display a random subset
+          &amp; a code that you can use whogot command to lookup who was
+          included</p>
+        <pre><code>user2 user2 user3 user4 user5  (+15 more) [abcde]<br>.whogot abcde<br>&lt;wallet&gt; user1 -&gt; user15 + 17 others.</code></pre>
         <!-- END BREAKDOWN -->
         <!-- END WALKTHROUGH -->
         <!-- START RESERVE -->
         <h2>Reserve</h2>
         <p>Reserves are secondary balances separate from the one used for
-          tipping and soaking.</p>
+          tipping and soaking.&nbsp; Your reserve can be useful to put away
+          coins that are not show in your balance by default (privacy when doing
+          balance in channel) or since coins can -only- be used with 'release'
+          command, helps prevent accidental use like .soak all etc</p>
         <p><strong>Balances</strong></p>
-        <pre><code>/msg Wallet balance reserve<br>/msg Wallet ltc balance reserve<br>/msg Wallet xzc balance reserve</code></pre>
+        <pre><code>.balance reserve<br>&lt;wallet&gt; Bill48105: Your reserve balance is 117 DOGE<br>.ltc balance reserve<br>.balance reserve $roger</code></pre>
         <p><strong>Adding to Reserve</strong></p>
-        <pre><code>/msg Wallet reserve &lt;amount&gt;<br>/msg Wallet reserve ltc &lt;amount&gt;<br>/msg Wallet reserve xzc &lt;amount&gt;</code></pre>
+        <pre><code>.reserve &lt;amount&gt;<br>.btc reserve 0.0001<br>.reserve 0.001 $LTC</code></pre>
         <p><strong>Releasing from Reserve</strong></p>
-        <pre><code>/msg Wallet release &lt;amount&gt;<br>/msg Wallet release ltc &lt;amount&gt;<br>/msg Wallet release xzc &lt;amount&gt;</code></pre>
+        <pre><code>.release &lt;amount&gt;<br>.ltc release 0.00001<br>.release 10 ROGER</code></pre>
         <!-- START 2FA -->
         <p><strong>2 Factor Authentication (2FA)</strong></p>
-        <p>2FA is an OPTIONAL piece of security afforded to the users.</p>
+        <p>2FA is an OPTIONAL piece of security afforded to the users.&nbsp; 2FA
+          runs in 1 of 4 modes:</p>
+        <ul>
+          <li>Disabled</li>
+          <li>Classic (release from reserve only)</li>
+          <li>Default (any command that moves coins)</li>
+          <li>Full (ALL commands except unlock, ping &amp; help)</li>
+        </ul>
+        <p><strong>WARNING! Only run set in PRIVATE! (PM/DM/messages etc)</strong><br>
+          While you can run confirm in a channel it's best to do in private as
+          well</p>
         <p> </p>
-        <pre><code>/msg Wallet secret &lt;action&gt;</code></pre>
+        <pre><code>.secret &lt;set|confirm&gt;</code></pre>
         <p>Actions: set clear</p>
         <ul>
-          <li>Set: Bot PM's your 16 char TOTP 2FA (ie Google Authenticator) key.</li>
-          <li>Clear: N/A - WARNING: No confirmation process. Enabled IMMEDIATELY
-            after 'set'.</li>
+          <li>set: Bot PM's your 16 char TOTP 2FA (ie Google Authenticator,
+            authy etc) key.</li>
+          <li>confirm &lt;2FA code (6 digit no spaces)&gt; Use code from your
+            2FA app (NOT YOUR SECRET) to activate 2FA.</li>
         </ul>
         <p><strong>Unlocking 2FA</strong></p>
         <p>To unlock 2FA to release coins from your reserve you must use the
-          following command: (Your reserves will remain open for 120 seconds.)</p>
-        <pre><code>/msg Wallet unlock &lt;2FA code (6 digit)&gt;</code></pre>
+          following command: (Your reserves will remain open for 120 seconds or
+          the number of seconds specified. 0 unlocks for 1 day)</p>
+        <pre><code>.unlock &lt;2FA code (6 digit no spaces)&gt; &lt;seconds&gt;</code></pre>
+        <p><strong>Locking immediately<br>
+          </strong></p>
+        <p>The bot auto locks after the specified time but you can force a lock:</p>
+        <pre><code>.lock</code></pre>
         <!-- END 2FA -->
         <!-- END RESERVE -->
         <!-- START RAIN -->
@@ -169,32 +172,14 @@
         <!-- START TIP -->
         <h2>Tip</h2>
         <p>You can send another user a tip using the following command:</p>
-        <pre><code>.tip &lt;user&gt; &lt;amount&gt;<br>.tip ltc &lt;user&gt; &lt;amount&gt;<br>.tip xzc &lt;user&gt; &lt;amount&gt;</code></pre>
+        <pre><code>.tip &lt;user&gt; &lt;amount&gt;<br>.ltc tip &lt;user&gt; &lt;amount&gt;<br>reddit reply:<br>/u/walletbot tip &lt;amount&gt; &lt;coin&gt;</code></pre>
         <!-- END TIP -->
         <!-- START JACKPOT -->
         <h2>Jackpot</h2>
-        <p>The jackpot command allows users a chance of triggering one of the
-          following actions:</p>
-        <p>If tipped LESS than 50:</p>
-        <ul>
-          <li>Random tip returned to user or to another random user.</li>
-        </ul>
-        <p>If tipped MORE than 50:</p>
-        <ul>
-          <li>The tipped amount is returned to the user OR tipped to a different
-            user in the channel. (Bonus multiplier 1x-3x)</li>
-        </ul>
-        <p>If tipped MORE than 50 AND BonusPot balance is GREATER than
-          "Approximate Target":<br>
-          "Approximate Target" = Pseudo random number</p>
-        <ul>
-          <li>The BonusPot soaks a random amount to the channel at a random time
-            period.</li>
-          <li>The BonusPot rewards the top10 list a random amount at a random
-            time period.</li>
-        </ul>
-        <p>To contribute to the jackpot and be in with a chance of triggering
-          the jackpot use the following command:</p>
+        The jackpot command lets users donate to the community @bonuspot with a
+        chance to multiply their donation sharing with active users with a soak
+        or reward:<br>
+        <br>
         <pre><code>.jackpot &lt;amount&gt;</code></pre>
         <!-- END JACKPOT -->
         <!-- START RANDOM -->
@@ -208,38 +193,36 @@
         <!-- START VALUE -->
         <h2>Value</h2>
         <p>Val compares two coins or currencies.</p>
-        <pre><code>.val &lt;amount&gt; &lt;coin|currency #1&gt; &lt;coin|currency #2&gt;</code></pre>
+        <pre><code>.val &lt;amount&gt; &lt;coin|currency&gt; &lt;coin|currency&gt;<br>(If not amount is entered then a shorter summary is shown)<br>HINT: Most coins have automatic shortcut!<br>.doge<br>.btc</code></pre>
         <!-- END  VALUE -->
         <!-- START RANKING -->
         <h2>Rankings</h2>
         <p>User rankings can be viewed in several different ways.</p>
         <ul>
           <li>View the top 10 users.</li>
-          <li>View the top 20 users.</li>
           <li>View your rank for &lt;days&gt;, defaults to 1</li>
         </ul>
-        <pre><code>.top10<br>.top20<br>.myrank &lt;days&gt;</code></pre>
+        <pre><code>.top10 &lt;days&gt;<br>.top20 &lt;days&gt;<br>.myrank &lt;days&gt;</code></pre>
         <!-- END RANKING -->
         <!-- START REWARD -->
         <h2>Reward</h2>
         <p>Shares a proportional percentage of the &lt;amount&gt; to the top 10
-          or 20 users.</p>
+          or so suers.</p>
         <ul>
-          <li>Can specify &lt;minutes&gt;, defaults to latest count of 3+
-            included users.</li>
-          <!-- <li>If each is specified then each user will get &lt;amount&gt;.</li> -->
+          <li>Can specify &lt;days&gt;</li>
         </ul>
-        <pre><code>.reward &lt;amount&gt;<br>.reward &lt;amount&gt; &lt;minutes&gt;<br>.reward20 &lt;amount&gt;<br>.reward20 &lt;amount&gt; &lt;minutes&gt;<!-- <br>.rewardeach &lt;amount&gt;<br>.rewardeach &lt;amount&gt; &lt;minutes&gt; --></code></pre>
+        <pre><code>.reward &lt;amount&gt;<br>.reward &lt;amount&gt; &lt;minutes&gt;       </code></pre>
         <!-- END  REWARD -->
         <!-- START ACTIVE -->
         <h2>Active</h2>
-        <p>You can check the bots active count with or without Bonustime.</p>
-        <pre><code>.active<br>.activenow</code></pre>
+        <p>You can check the active count with:</p>
+        <pre><code>.active</code></pre>
         <!-- END ACTIVE -->
         <!-- START WHOSENT -->
         <h2>Whosent</h2>
-        <p>You can check who has tipped &lt;user&gt; with the following command:</p>
-        <pre><code>.whosent &lt;user&gt;</code></pre>
+        <p>You can check who has tipped or shared coins with you using the
+          following command:</p>
+        <pre><code>.whosent</code></pre>
         <!-- END WHOSENT -->
         <!-- START IDLETIME -->
         <h2>Idletime</h2>
@@ -253,39 +236,47 @@
         <h2>Last Seen</h2>
         <p>To check the last time a &lt;user&gt; spoke in the channel use the
           following command:</p>
-        <pre><code>.lastseen &lt;user&gt;</code></pre>
+        <pre><code>.seen &lt;user&gt;</code></pre>
         <!-- END SEEN -->
         <!-- START COUNTDOWN -->
         <h2>Countdown</h2>
         <p>Displays the countdown to the bot's birthday as well as the dogecoin
           birthday.</p>
-        <pre><code>/msg Wallet countdown<br>.countdown</code></pre>
+        <pre><code>.countdown</code></pre>
         <!-- END COUNTDOWN -->
         <!-- START DONATE -->
         <h2>Donations</h2>
-        <p>Donations can be made to help fund the bot &amp; the dev's.<br>
-          &lt;Funds&gt; include:</p>
+        <p>Donations can be made to help fund the bot &amp; various other
+          approved funds.<br>
+          DOGE funds include:</p>
         <ul>
-          <li>Wallet</li>
-          <li>@devfund</li>
-          <li>@bonuspot</li>
-          <li>@dogecoinfah</li>
-          <li>@androidwallet</li>
+          <li>Wallet (Goes to bot developer &amp; owner Bill48105)</li>
+          <li>@devfund (Goes to DOGECOIN official devs)</li>
+          <li>@bonuspot (Goes to shared community pot used to fund faucet games
+            etc)</li>
+          <li>@dogecoinfah (Goes to soco's dogecoin folding@home)</li>
+          <li>@androidwallet (Goes to Langerhans Android wallet fund)<br>
+            (NOTE: You can specify a fund or if none is specified one is chosen
+            randomly)</li>
         </ul>
-        <pre><code>/msg Wallet donate &lt;Funds&gt; &lt;amount&gt;<br>.donate &lt;Funds&gt; &lt;amount&gt;</code></pre>
+        <pre><code>.donate &lt;fund&gt; &lt;amount&gt;</code></pre>
         <!-- END DONATE -->
         <!-- START EXCHANGE -->
         <h2>Exchange Check</h2>
         <p>The bot allows you to check the exchange rate of many currencies
           directly with commands. The available coins are as follows:</p>
-        <pre><code>/msg Wallet ada<br>/msg Wallet btc<br>/msg Wallet dash<br>/msg Wallet doge<br>/msg Wallet eth<br>/msg Wallet ltc<br>/msg Wallet xmr<br>/msg Wallet xzc<br><br>.ada<br>.btc<br>.dash<br>.doge<br>.eth<br>.ltc<br>.xmr<br>.xzc</code></pre>
+        <pre><code>.btc<br>.doge<br>.roger</code></pre>
         <!-- END EXCHANGE -->
         <!-- START MISC -->
         <h2>Miscellaneous Commands</h2>
         <p>The bot can do many many more interesting things. Here are just a few
           of the fun commands available:</p>
         <pre><code>.8ball &lt;Question&gt;<br>.c ℉ to convert to ℃<br>.f ℃ to convert to ℉</code></pre>
-        <!-- END MISC --> </section>
+        <p>See .help command where commands are broken down into "core" and
+          various groups by type.</p>
+        <p><br>
+          <!-- END MISC --> </p>
+      </section>
     </div>
     <!-- END MAIN -->
     <!-- START FOOTER -->
