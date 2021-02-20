@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="description" content="Wallet user guide: ">
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-    <title>Wallet user guide</title>
+    <title>Wallet bot user guide</title>
   </head>
   <body>
     <!-- START HEADER -->
     <div id="header_wrap" class="outer">
       <header class="inner">
-        <h1 id="project_title">Wallet User Guide</h1>
-        <h2 id="project_tagline">A multi -coin multi-platform tip, soak, utility
+        <h1 id="project_title">Wallet / walletbot user guide</h1>
+        <h2 id="project_tagline">A multi-coin multi-platform tip, soak, utility
           bot</h2>
       </header>
     </div>
@@ -22,51 +22,58 @@
       <section id="main_content" class="inner">
         <!-- START INTRO -->
         <h2>Getting started</h2>
-        <p>To get started with Wallet you need to ensure that you have
-          registered and identified with NickServ on Freenode. You can register
-          using the following command:</p>
+        <p>To get started with Wallet you need to be registered &amp; logged
+          into whatever platform you are accessing the bot on.&nbsp; For example
+          on Freenode IRC ensure that you have registered and identified with
+          NickServ on Freenode. You can register using the following command:</p>
         <pre><code>/msg NickServ REGISTER &lt;password&gt; &lt;email-address&gt;</code></pre>
         <br>
-        <p>Once registered and identified with NickServ you are ready to go,
-          there's no need to create an account with Wallet. You can increase
-          your account balance in two ways; receiving coins through tips, soaks
-          and rain or through depositing directly from a wallet.</p>
+        <p>Once registered &amp; logged in, you are ready to go. There's no need
+          to create an account with Wallet. You can increase your account
+          balance in two ways; receiving coins through faucet/tips/soaks/games,
+          or through depositing directly from a wallet or exchange. (See deposit
+          command)</p>
         <!-- END INTRO -->
         <!-- START COINS -->
         <h2>Coins</h2>
         <p>To view all the coins that Wallet current supports use the following
           command:</p>
-        <pre><code>/msg Wallet coins</code></pre>
+        <pre><code>.coins list<br>&lt;Wallet&gt; Bill48105: Supported coins: BTC CORG DOGE DOGET GRLC LDOGE LTC MNC PIGGY ROGER SOON SYS VTC XMR XVG XZC  - Usage: .ltc balance -or- .balance $LTC<br><br>NOTE: The default trigger prefix is . (dot) but it might vary depending<br>on how you access Wallet. For example if the prefix is ! you'd use:<br>!coins list<br>Or on reddit you just mention the bot:<br>/u/walletbot coins list</code></pre>
+        <p>Since Wallet supports multiple coins, there is a global default coin
+          of DOGE and each channel has ability to set their own default coin as
+          well.&nbsp; But you can always choose an available coin when issuing
+          commands:</p>
+        <pre><code>.btc balance<br>&lt;Wallet&gt; Bill48105: • Your balance is: 0.0000006 BTC (≈0.03 USD)<br><br>.tip Bill48105 0.1 XMR<br>&lt;Wallet&gt; Bill48105 tipped 0.1 XMR (≈$27.87) to Bill48105 [abcdef]<br></code><code>.info $btc<br>&lt;Wallet&gt; Bill48105: Bitcoin (BTC) • Ver: 160000 • Proto: 70015 • Blocks: 671364 • Diff: 21724.13B • Conn: 8 • Last: ≈31.04 min • Avg: ≈6.79 min • Confirm: ≈1 hr 34 min<br><br>reddit:<br>/u/walletbot balance $ltc<br><br>NOTE: You can select the coin in any 1 of the 3 ways shown on most platforms.<br>Commands and coins are NOT case sensitive.<br></code></pre>
         <!-- END COINS -->
         <!-- START BONUSTIME -->
-        <h2>Idle time (bonus time)</h2>
-        <p>Wallet uses the concept of idle time which allows a user to still be
-          included in soaks for up to 24 hours without needing to talk in the
-          channel every 10 minutes to remain active. Whilst a user will still
-          remain active for 10 minutes after talking it is possible to earn much
-          greater amounts of idle time by soaking and raining. Idle time also
-          allows you to remain active even if you are offline, meaning that you
-          will still be included in soaks even if you disconnect from IRC
-          completely. This significantly cuts down on the amount of spam
-          generated in the channel whilst also rewards those who give back to
-          the channel by soaking and raining.</p>
+        <h2>Help</h2>
+        <p>You can get a list of available commands issuing the help command:</p>
+        <pre><code>.help<br>&lt;Wallet&gt; Bill48105: I'm a cool multi-coin multi-platform bot by Bill48105. Docs: https://bill48105.github.io/wallet/ | My core commands: .balance .deposit .faucet .ping .soak .tip .val .withdraw  | .help &lt;games|share|misc|other&gt; to see others | .help &lt;cmd&gt; for more details.</code></pre>
+        <p><br>
+        </p>
+        <p>You can help get detailed help &amp; example usage on a particular
+          command:</p>
+        <pre><code>.help coins<br>&lt;Wallet&gt; Bill48105: Help: .coins &lt;list|set&gt; - list shows available coins. set saves current coin as default</code></pre>
+        <p><br>
+        </p>
+        <p></p>
         <!-- END BONUSTIME -->
         <!-- START DEPOSIT -->
         <h2>Deposit</h2>
         <p>To deposit into your account use the following commands to receive
           your deposit addresses:</p>
-        <pre><code>/msg Wallet deposit<br>/msg Wallet ltc deposit<br>/msg Wallet xzc deposit</code></pre>
+        <pre><code>.deposit<br>.btc deposit<br>reddit:<br>/u/walletbot deposit $ltc</code></pre>
         <!-- END DEPOSIT -->
         <!-- START WITHDRAW -->
         <h2>Withdraw</h2>
         <p>To withdraw coins from your account use the following commands:
-          (Minimum: 10, Fee: 2)</p>
-        <pre><code>/msg Wallet withdraw &lt;wallet address&gt; &lt;amount&gt;<br>/msg Wallet ltc withdraw &lt;wallet address&gt; &lt;amount&gt;<br>/msg Wallet xzc withdraw &lt;wallet address&gt; &lt;amount&gt;</code></pre>
+          (Minimum &amp; fee vary by coin)</p>
+        <pre><code>.withdraw &lt;address&gt; &lt;amount|all&gt;<br>.ltc withdraw &lt;address&gt; &lt;amount|all&gt;<br>.xmr withdraw &lt;address&gt; &lt;amount|all&gt;<br>reddit:<br>u/walletbot withdraw &lt;address&gt; &lt;amount|all&gt; $DOGE</code></pre>
         <!-- END WITHDRAW -->
         <!-- START BALANCES -->
         <h2>Balances</h2>
         <p>To see how many coins are in your account use the following commands:</p>
-        <pre><code>/msg Wallet balance<br>/msg Wallet ltc balance<br>/msg Wallet xzc balance<br>/msg Wallet balances<br>/msg Wallet bal</code></pre>
+        <pre><code>.balances<br>.roger balance<br>.bal</code></pre>
         <!-- END BALANCES -->
         <!-- START SOAK -->
         <h2>Soak</h2>
@@ -157,9 +164,7 @@
         <!-- END RESERVE -->
         <!-- START RAIN -->
         <!-- <h2>Rain</h2>
-        <p>Rain allows a user to give each active member in the channel a specific amount of coins. Rain can either be public where the channel can see who rained the coins or ninja where the user raining is not announced to the channel.</p>        <p>Example: When there are 10 active users in a channel and a user decides to rain 10 coins each active user will receive 10 coins each.</p>
-        <p>To public rain use the command:</p>        <pre><code>.rain &lt;amount&gt;</code></pre>
-        <p>To ninja rain use the following command to send a message directly to the bot:</p>        <pre><code>/msg Wallet rain &lt;amount&gt;</code></pre> -->
+        <p>Rain allows a user to give each active member in the channel a specific amount of coins. Rain can either be public where the channel can see who rained the coins or ninja where the user raining is not announced to the channel.</p>        <p>Example: When there are 10 active users in a channel and a user decides to rain 10 coins each active user will receive 10 coins each.</p>        <p>To public rain use the command:</p>        <pre><code>.rain &lt;amount&gt;</code></pre>        <p>To ninja rain use the following command to send a message directly to the bot:</p>        <pre><code>/msg Wallet rain &lt;amount&gt;</code></pre> -->
         <!-- END RAIN -->
         <!-- START TIP -->
         <h2>Tip</h2>
@@ -289,6 +294,8 @@
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
-    <!-- END FOOTER -->
+    <!-- END FOOTER --><br>
+    <br>
+    <br>
   </body>
 </html>
