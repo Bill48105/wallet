@@ -276,6 +276,58 @@
           various groups by type.</p>
         <p><br>
           <!-- END MISC --> </p>
+        <!-- START DORMANCY -->
+        <h2>Maintaining Account &amp; Dormancy Policy</h2>
+        <p>The bot does not require creation of an account or logging in because
+          it relies on the authentication of each platform and then uses the
+          services of that platform to ensure you are logged in and account you
+          are logged in as. This is convenient but also poses some security
+          risks for each user to consider: </p>
+        <pre><code>IT IS <strong>HIGHLY RECOMMENDED</strong> ALL USERS SETUP &amp; USE 2FA ON THE BOT!</code></pre>
+        <br>
+        <ul>
+          <li>If your user account on that platform is hacked or compromised,
+            whoever logs in as you will be seen as you for bot use, including
+            having access to your balances.</li>
+          <li>If you lose access to your user account on a given platform, you
+            will&nbsp; lose access to that account on the bot, including access
+            to your balances.</li>
+          <li>If a platform suspends, locks, or deletes your user account, you
+            will lost access to that account on the bot, including access to
+            your balances.</li>
+          <li>If a platform allows users to register previously used accounts,
+            the bot will use that account for bot access including potentially
+            accessing the balances of a previous user.</li>
+        </ul>
+        <p>So what does all of that mean? Your bot account is only as secure as
+          the account you login as on any given platform..&nbsp; You should
+          protect your accounts with best-practice strong passwords (never
+          re-used!), and utilize advanced security features such as 2FA if they
+          offer it. But in addition it's highly recommended that you setup &amp;
+          enable TOTP 2FA on the bot too! Why? Not all platforms offer or
+          support 2FA but that 2FA only protects login to that account and DOES
+          NOT protect against account re-use abuse or or other attacks on your
+          bot account since once someone is logged into a given platform, the
+          bot assumes that user also has access to your bot account.</p>
+        <p>To help mitigate these attacks and help keep your bot account safe
+          the bot has the following dormancy &amp; recovery policy:</p>
+        <ul>
+          <li>Bot accounts of users without 2FA enabled not accessed for 90 days
+            will be auto locked.</li>
+          <li>Bot accounts of users with 2FA enabled not accessed for 6 months
+            will be auto locked.</li>
+          <li>All bot accounts of users not accessed for 1 year will be
+            automatically purged as dormant.</li>
+        </ul>
+        <p>Accounts <u>may</u> be unlocked or recovered from dormancy,
+          depending on the status of your platform account. The factors vary by
+          platform but include such things as the age (date of registration),
+          but mostly if you can provide reasonable proof that a bot account is
+          yours. <strong>Since the bot does not collect personal information
+            from users, the best way to do that is having had setup 2FA on the
+            bot BEFORE the lock or dormancy happens..&nbsp;</strong> </p>
+        <p><br>
+          <!-- END DORMANCY --> </p>
       </section>
     </div>
     <!-- END MAIN -->
