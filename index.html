@@ -26,6 +26,8 @@
               update December 2021</a></strong></p>
         <p> <strong><a href="#freenode-update" title="Freenode Update">Freenode
               update June 2021</a> </strong></p>
+        <p> <strong><a href="#faq" title="FAQ">"Are my coins really worth $5?"
+              and other FAQ's</a> </strong></p>
         <h2>Getting started</h2>
         <p>To get started with Wallet you need to be registered &amp; logged
           into whatever platform you are accessing the bot on.&nbsp; For example
@@ -396,11 +398,103 @@
         </ul>
         <p> More to come! </p>
         <!-- END CREDITS -->
+        <!-- START FAQ -->
+        <h2 id="faq">FAQ</h2>
+        <ul>
+          <li><strong>"Are my coins really worth $5?"</strong> - The bot uses
+            market data from multiple exchanges &amp; aggregate sources to <strong>ESTIMATE</strong>
+            what your coins <em>MIGHT</em> be worth. So the short answer is
+            maybe. The longer answer is more complicated. Basically things are
+            worth what someone will give you for it at a given point in time, be
+            it manure or cryptocurreny. No the bot is not offering you that, nor
+            it is guaranteeing you could get that. Because what you might get
+            depends on many factors from transfer/trade fees to the market at
+            any given moment, which market pair you traded with, among other
+            things.</li>
+          <li><strong>"Why does xtip warn me about value?"</strong> - When you
+            create a person to person cross-tip swap with xtip, the bot uses
+            current market data to <strong>ESTIMATE</strong> what the coins you
+            use are worth to calculate <strong>APPROXIMATION</strong> of how
+            many of the coins you want. Since the value (as in what people are
+            offering, asking or actually traded for) of coins can vary between
+            exchanges, the bot uses the average of the most recent data which
+            normally is normally minimal effect for common popular coins with
+            plenty of volume &amp; arbitrage to keep gaps between markets
+            closed. But for some coins the gaps can be HUGE, resulting in
+            confusion of value &amp; resulting in the bot alerting you to
+            discrepancies during xtip. The notice is not meant as an error but
+            rather a "heads up" that you might get more (or less) using a
+            different path from coin1 to coin2. (Say going to BTC or LTC first
+            then to coin2 vs directly) It's up to the you if you are concerned
+            with the potential gap the bot is alerting you to. </li>
+          <li><strong>"What's this about market gaps then?"</strong> - The
+            simplest example is say you wanted to buy or sell BTC, if you go to
+            5 exchanges you'll see each one has a different price. In fact some
+            people take advantage of this and buy on 1 cheaper exchange and sell
+            on another higher priced one for a profit, aka arbitrage trading.
+            But realize these gaps happen within any given exchange too, between
+            market PAIRS. DOGE for example might be traded in USD, BTC, LTC
+            &amp; others. The price is given in that pair's base coin/fiat so to
+            buy/sell DOGE on BTC it's BTC, on LTC it's LTC etc. Because those
+            markets are independent of each other their prices will fluctuate to
+            point there ends up a gap in the USD value of each. When a coin has
+            a BTC pair with 1 satoshi floor where there's no sub-satoshi
+            option,&nbsp; it's often the case where the market gap for some
+            coins is HUGE.</li>
+          <li><strong>"How does the bot estimate the USD/$ value of coins then?"</strong>
+            - The bot uses available market data from multiple sources. Where a
+            USD pair exists for a coin, the data from multiple sources is
+            averaged &amp; used. Otherwise a coin that does, such as BTC, must
+            be used as an intermediary path to get to USD. Why? Because that's
+            how a person would normally do it.. If you had DOGE and no USD pair
+            existed you'd would trade your DOGE for BTC then trade your BTC for
+            USD. So doing that to estimate value is logical. The caveat is that
+            which coin you use as intermediary can make a huge difference in the
+            net result.. Market gaps (value of a coin on 1 market vs another)
+            come into play but specifically the "satoshi floor" effect can
+            REALLY make for huge discrepancies.</li>
+          <li><strong>"Wait, what 'satoshi floor' effect?"</strong> - Since BTC
+            has historically been the most common trading pair most every coin
+            is traded in it. Bitcoin units go down to 1 satoshi, or 0.00000001
+            BTC worth, but some coins are worth less than 1 satoshi based on the
+            current price on other markets. Say a coin is worth 0.001 DOGE
+            (1/1000th) and DOGE is worth 0.00000100 BTC (1/1,000,00th). So that
+            coin is worth 1/10th less than 1 satoshi, the lowest fraction of
+            Bitcoin. Some exchanges support sub-sat markets so the satoshi floor
+            effect doesn't happen. But for exchanges that honor 8 places, it can
+            cause HUGE market gaps since a coin will be worth 1 satoshi on BTC
+            pair but 1/10th of a satoshi on another, with millions of sell
+            orders at 1 sat that go unfilled, while there's volume on the other
+            market being more common. Some argue the market with highest trading
+            volume is the actual value, while others claim the BTC value is
+            since the market exists with orders &amp; BTC is traditionally the
+            "de facto" market.</li>
+        </ul>
+        <p><br>
+        </p>
+        <!-- END FAQ -->
         <!-- START DISCORD UPDATE -->
         <h2 id="discord-update">** IMPORTANT DISCORD UPDATE ** </h2>
         <h2>December 2021</h2>
-        Big changes at Discord.. <br>
-        <br>
+        Big changes at Discord regarding bots.. Here's a few links you can read
+        about it but basically a lot is up in the air at this point as far as
+        all bots including Wallet and if they'll still work at all depending on
+        what library is used, if functionality from commands to bridging to
+        moderation tools will still work, if bots will be approved in time or
+        which bots Discord feels has proven an actual need for message intents,
+        etc.&nbsp; The intention is to keep Wallet available on Discord and
+        retain all functionality but that may not be possible. More will be
+        known the closer we get to the deadline but in the meantime please refer
+        to the Best Practices section of the bot docs.<br>
+        <span style="color: red;"> <strong>(It's highly recommended you have
+            2FA setup on Wallet to help identify you for recover if it comes to
+            that)</strong><br>
+        </span><strong>Info on the changes:</strong><br>
+        <a href="https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1">Danny
+          (Rapptz) Discord.py Announcement</a><br>
+        <a href="https://linustechtips.com/topic/1368652-discordpy-now-deprecated/">Linus
+          Tech Tips Discord.py Deprecated Discussion<br>
+        </a><br>
         <!-- END DISCORD UPDATE -->
         <!-- START FREENODE UPDATE -->
         <h2 id="freenode-update">** IMPORTANT FREENODE UPDATE ** </h2>
